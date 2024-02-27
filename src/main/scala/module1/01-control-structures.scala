@@ -30,7 +30,7 @@ object controlStructures {
   // будет возвращать "yes" или "no",
   // присвойте его в переменную х1
 
-  val x1 = ???
+  val x1: String = if(cond) "yes" else "no"
 
 
 
@@ -40,7 +40,7 @@ object controlStructures {
   // будет печатать "yes" или "no" в консоль,
   // присвойте его в переменную х2
 
-  val x2 = ???
+  val x2: Unit = if(cond) println("yes") else println("no")
 
 
 
@@ -48,7 +48,7 @@ object controlStructures {
   // false то вернет строку "no",
   // присвойте его в переменную х3
 
-  val x3 = ???
+  val x3: Any = if(cond) println("yes") else "no"
 
 
   /**
@@ -58,8 +58,9 @@ object controlStructures {
    */
 
    var i = 0
-   val x4 = ???
-
+   val x4: Unit = while(cond) {
+     1 + 1
+   }
 
 
   /**
@@ -68,6 +69,11 @@ object controlStructures {
    */
 
    val arr: Array[Int] = ???
+
+   val _: Unit = for(el <- 0 to 10) {
+     var i = 0
+     println(el)
+   }
 
 
 }
