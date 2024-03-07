@@ -205,7 +205,6 @@ object type_system {
 
 
   // A -> B -> C -> E -> D
-  // DECBA
   val v1 = new A with E with D with C with B
 
 

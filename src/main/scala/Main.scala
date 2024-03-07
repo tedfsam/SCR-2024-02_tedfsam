@@ -1,4 +1,4 @@
-import module1.type_system
+import module1.{hof, type_system}
 
 
 object Main {
@@ -6,7 +6,8 @@ object Main {
   def main(args: Array[String]): Unit = {
     println("Hello, World!")
 
-    println(type_system.v1.foo())
+    val f: String => Unit = hof.logRunningTime(hof.doomy)
+    f("ooops")
   }
 }
 
