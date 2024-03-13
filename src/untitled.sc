@@ -3,10 +3,10 @@ import scala.util.Random
 class Urn {
   val balls = List(1, 1, 1, 0, 0, 0) // 1 - белый шар, 0 - черный шар
 
-  def drawTwoBalls(): (Boolean, Boolean) = {
-    val shuffledBalls = Random.shuffle(balls)
-    (shuffledBalls(0) == 1, shuffledBalls(1) == 1)
-  }
+val n: Int = 50
+def fibRec(n: Int, currentNumber: Int = 1, f1: BigInt = 0, f2: BigInt = 1): BigInt = {
+  if (n == currentNumber) f2
+  else fibRec(n, currentNumber + 1, f2, f1 + f2)
 }
 
 object Main {
