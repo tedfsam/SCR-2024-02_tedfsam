@@ -32,7 +32,7 @@ object LinearAlgebraOps extends App {
     }
   }
 
-  def scale(a: Int, v1: Array[Int]): Array[Int] = v1.map(x => x * a)
+  def scale(a: Int, v1: Array[Int]): Array[Int] = v1.map(_ * a) // v1.map(x => x * a)
 
   def axpy(a: Int, v1: Array[Int], v2: Array[Int]): Array[Int] = {
     if (v1.length != v2.length) {
