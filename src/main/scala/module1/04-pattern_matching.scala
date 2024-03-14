@@ -1,32 +1,25 @@
 package module1
 
-object pattern_matching{
-     // Pattern matching
+object pattern_matching {
+  // Pattern matching
 
   /**
    * Матчинг на типы
    */
 
-   val i: Any = ???
+  val i: Any = ???
 
-   i match {
-     case v: Int => println("Int")
-     case v: String => println("String")
-     case v: List[String] => println("List[String]")
-     case v: List[Int] => println("List[Int]")
-   }
-
-
-
+  i match {
+    case v: Int => println("Int")
+    case v: String => println("String")
+    case v: List[String] => println("List[String]")
+    case v: List[Int] => println("List[Int]")
+  }
 
   /**
    * Структурный матчинг
    */
-
-
-
-
-  sealed trait Animal{
+  sealed trait Animal {
 
     def whoIam = this match {
       case Dog(n, _) => println(s"I'm dog $n")
@@ -34,23 +27,21 @@ object pattern_matching{
     }
 
     def whoIam2 = this match {
-      case d: Dog=> println(s"I'm dog ${d.name}")
+      case d: Dog => println(s"I'm dog ${d.name}")
       case c: Cat => println(s"I'm cat ${c.name}")
     }
 
   }
 
-
   case class Dog(name: String, age: Int) extends Animal
-  case class Cat(name: String, age: Int) extends Animal
 
+  case class Cat(name: String, age: Int) extends Animal
 
   /**
    * Матчинг на литерал
    */
 
   val animal: Animal = ???
-
 
   val Bim = "Bim"
 
@@ -59,7 +50,6 @@ object pattern_matching{
     case Cat(name, age) => println(s"I'm cat $name")
     case _ => println("Smth else")
   }
-
 
   /**
    * Матчинг на константу
@@ -71,9 +61,6 @@ object pattern_matching{
     case _ => println("Smth else")
   }
 
-
-
-
   /**
    * Матчинг с условием (гарды)
    */
@@ -84,14 +71,13 @@ object pattern_matching{
     case Cat(name, _) => println(s"I'm cat $name")
   }
 
-
   /**
    * "as" паттерн
    */
 
   def treatCat(cat: Cat) = ???
-  def treatDog(dog: Dog) = ???
 
+  def treatDog(dog: Dog) = ???
 
 
   /**
@@ -99,50 +85,45 @@ object pattern_matching{
    */
 
   def treatAnimal(a: Animal) = a match {
-    case d @ Dog(name, age) =>
+    case d@Dog(name, age) =>
       treatDog(d)
 
-    case c @ Cat(name, age) => treatCat(c)
+    case c@Cat(name, age) => treatCat(c)
   }
 
-
   final case class Employee(name: String, address: Address)
+
   final case class Address(val street: String, val number: Int)
 
 
   val alex = Employee("Alex", Address("Pushkin str", 26))
 
-
-
   /**
    * воспользовавшись паттерн матчингом напечатать номер из поля адрес
    */
 
+  alex match {
+    case Employee(_, Address(_, number)) => println(number)
+  }
 
-   alex match {
-     case Employee(_, Address(_, number)) => println(number)
-   }
+  class Person(val name: String, val age: Int)
 
+  val p = Person("Alex", 42)
 
-   class Person(val name: String, val age: Int)
+  val Person(n, age) = p
 
-   val p = Person("Alex", 42)
+  val n2 = p.name
+  val age2 = p.age
 
-   val Person(n, age) = p
+  object Person {
+    def unapply(p: Person): Option[(String, Int)] = ???
 
-   val n2 = p.name
-   val age2 = p.age
-
-   object Person{
-     def unapply(p: Person): Option[(String, Int)] = ???
-     def apply(name: String, age: Int): Person = ???
-   }
+    def apply(name: String, age: Int): Person = ???
+  }
 
   p match {
     case Person(n, a) => println(a)
   }
-
-
 
   /**
    * Паттерн матчинг может содержать литералы.
@@ -151,9 +132,6 @@ object pattern_matching{
    * 2. Все остальные
    */
 
-
-
-
   /**
    * Паттерны могут содержать условия. В этом случае case сработает,
    * если и паттерн совпал и условие true.
@@ -161,13 +139,11 @@ object pattern_matching{
    */
 
 
-
   /**
    * Реализовать паттерн матчинг на alex с двумя кейсами.
    * 1. Имя должно начинаться с A
    * 2. Все остальные
    */
-
 
   /**
    *
@@ -177,39 +153,41 @@ object pattern_matching{
    * так и внутри кейса
    */
 
-    trait PaymentMethod
-    case object Card extends PaymentMethod
-    case object WireTransfer extends PaymentMethod
-    case object Cash extends PaymentMethod
+  trait PaymentMethod
 
-    case class Order(paymentMethod: PaymentMethod)
+  case object Card extends PaymentMethod
 
-    lazy val order: Order = ???
+  case object WireTransfer extends PaymentMethod
 
-    lazy val pm: PaymentMethod = ???
+  case object Cash extends PaymentMethod
 
+  case class Order(paymentMethod: PaymentMethod)
 
-    def checkByCard(o: Order) = ???
+  lazy val order: Order = ???
 
-    def checkOther(o: Order) = ???
+  lazy val pm: PaymentMethod = ???
 
 
+  def checkByCard(o: Order) = ???
+
+  def checkOther(o: Order) = ???
 
   /**
    * Мы можем использовать вертикальную черту `|` для матчинга на альтернативы
    */
 
-   sealed trait A
-   case class B(v: Int) extends A
-   case class C(v: Int) extends A
-   case class D(v: Int) extends A
+  sealed trait A
 
-   val a: A = ???
+  case class B(v: Int) extends A
 
-   a match {
-     case B(_) | C(_) => ???
-     case D(_) => ???
-   }
+  case class C(v: Int) extends A
 
+  case class D(v: Int) extends A
 
+  val a: A = ???
+
+  a match {
+    case B(_) | C(_) => ???
+    case D(_) => ???
+  }
 }
