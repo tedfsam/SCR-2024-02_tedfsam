@@ -7,6 +7,7 @@ object Main {
 
     val f: String => Unit = hof.logRunningTime(hof.doomy)
     f("ooops")
+
   }
 }
 
