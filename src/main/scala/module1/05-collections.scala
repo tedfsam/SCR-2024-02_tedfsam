@@ -61,4 +61,5 @@ object coll{
 
   val result2 = numbers.distinct.drop(2).take(2).map(_ * 10)
 
+
 }

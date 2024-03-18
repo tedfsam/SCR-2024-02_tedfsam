@@ -87,8 +87,8 @@ object hof {
 
   def sum(x: Int, y: Int): Int = x + y
 
-  val _: Int => Int => Int = sum _.curried
-  val p: Int => Int = (sum _.curried)(2)
+  val _: Int => Int => Int = (sum _).curried
+  val p: Int => Int = (sum _).curried(2)
   p(3) // 5
 
 
