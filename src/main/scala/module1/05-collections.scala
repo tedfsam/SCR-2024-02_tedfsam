@@ -41,7 +41,6 @@ object coll{
 
   // комбинация элементов с помощью бинарной ассоциативной операции с лева направо и аккумулятора
 
-
   // комбинация элементов с помощью бинарной ассоциативной операции c сохранением промежуточных
   // результатов
   val sumScan: List[Int] = numbers.scan(0)(_ + _)
@@ -60,6 +59,5 @@ object coll{
   val result1 = numbers.filter(_ % 2 == 0).map(_ * 2).reverse
 
   val result2 = numbers.distinct.drop(2).take(2).map(_ * 10)
-
 
 }

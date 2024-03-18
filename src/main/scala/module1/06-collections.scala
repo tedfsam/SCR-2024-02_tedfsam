@@ -4,11 +4,8 @@ import scala.Stream
 
 object parser{
 
-
 }
-
 case class Car(year: Int, mark: String, model: String, canDrive: Boolean)
-
 
 object lazyOps{
 
@@ -24,7 +21,6 @@ object lazyOps{
 //    println(s"filter $i")
 //    i % 2 == 0
 //  }.take(10).toList
-
 
   stream2.take(10).toList.view.map{ i =>
     println(s"map $i")
