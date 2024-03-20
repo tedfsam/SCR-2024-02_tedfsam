@@ -1,6 +1,6 @@
 package module1
 
-object coll{
+object coll {
 
   // создать список чисел
 
@@ -8,7 +8,8 @@ object coll{
 
   // удвоить числа в списке
 
-  val doubleNumbers = numbers.map(_ * 2)
+  val doubleNumbers1 = numbers.map(_ * 2)
+  val doubleNumbers2 = numbers.map(i => i * 2)
 
   // преобразовать список слов, в список букв
 
@@ -24,11 +25,13 @@ object coll{
 
   // получить список только из чисел
 
-  val numbersOnly = mixedList.collect{case x: Int => x}
+  val numbersOnly = mixedList.collect { case x: Int => x }
+  val numbersOnly2 = mixedList.filter(_.isInstanceOf[Int])
 
   // Посчитать сумму чисел в списке numbers
 
   val sum = numbers.reduce(_ + _)
+  val sum2 = numbers.sum // аналог ide
 
   // комбинация элементов с помощью бинарной ассоциативной операции и аккумулятора
 
@@ -37,7 +40,7 @@ object coll{
   // комбинация элементов с помощью бинарной ассоциативной операции с лева направо
   // найти максимальное число
 
-  val max = numbers.reduceLeft((a, b) => if(a > b) a else b)
+  val max = numbers.reduceLeft((a, b) => if (a > b) a else b)
 
   // комбинация элементов с помощью бинарной ассоциативной операции с лева направо и аккумулятора
 
@@ -50,6 +53,7 @@ object coll{
   // сортировка
 
   case class User(email: String, password: String)
+
   val users = List(User("b@yandex.ru", "345"), User("a@yandex.ru", "123"), User("c@yandex.ru", "078"))
 
   val sortedNumbers = numbers.sortWith((a, b) => a > b)
