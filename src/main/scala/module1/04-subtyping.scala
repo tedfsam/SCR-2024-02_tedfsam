@@ -28,7 +28,6 @@ object subtyping{
    */
    val t2 = ???
 
-
   /**
    *
    * С помощью типа выразить отношение Vehicle и Harley, причем чтобы они шли в этом порядке
@@ -45,9 +44,6 @@ object subtyping{
 
   def isInstanceOf[A,  B <: A](a: A): Unit = ???
 
-
-
-
 //  lazy val mustCompile1    = isInstanceOf[Car, Mustang.type](Mustang)
 //  lazy val mustCompile2    = isInstanceOf[Moto, Harley.type](Harley)
 //  lazy val mustNotCompile1 = isInstanceOf[Mustang.type, Moto](Mustang)
@@ -61,7 +57,5 @@ object subtyping{
 //  lazy val mustCompile4 = isInstanceOf[Box[Vehicle], Box[Car]](???)
 //  lazy val mustNotCompile3 = isInstanceOf[Box[Car], Box[Vehicle]](???)
 //  lazy val mustNotCompile4 = isInstanceOf[Box[Harley.type], Box[Moto]](???)
-
-
 
 }

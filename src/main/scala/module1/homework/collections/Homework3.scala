@@ -1,6 +1,7 @@
+package module1.homework.collections
 
 import scala.util.Random
-/*
+
 class Urn {
   val balls = List(1, 1, 1, 0, 0, 0) // 1 - белый шар, 0 - черный шар
 
@@ -9,8 +10,7 @@ class Urn {
     (shuffledBalls(0) == 1, shuffledBalls(1) == 1)
   }
 }
-
-object Main {
+object Homework3 {
   def main(args: Array[String]): Unit = {
     val experiments = List.fill(10000)(new Urn())
 
@@ -21,11 +21,3 @@ object Main {
     println(s"Вероятность появления белого шара: $probability")
   }
 }
-
- */
-val numbers = List(1, 2, 3, 4, 5)
-
-val result1 = numbers.filter(_ % 2 == 0).map(_ * 2).reverse
-val result1 = numbers.filter(_ % 2 == 0).map(_ * 2).sum
-
-val result2 = numbers.distinct.drop(2).take(2).map(_ * 10)
