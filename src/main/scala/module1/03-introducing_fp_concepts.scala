@@ -1,6 +1,5 @@
 package module1
 
-import module1.list.List.Cons
 import module1.type_system.A
 
 import java.util.UUID
@@ -10,7 +9,7 @@ import scala.collection.immutable.Stream.Empty.append
 import scala.language.postfixOps
 
 // recursion
-
+/*
 object recursion {
 
   /**
@@ -299,3 +298,5 @@ object list {
    */
   def shoutString(list: List[String]): List[String] = map(list)(_.toUpperCase)
 }
+
+ */

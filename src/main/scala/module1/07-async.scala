@@ -181,7 +181,7 @@ object try_{
 }
 
 object future{
-  // constructors
+  // constructors 
 
   def longRunningComputation: Int = ???
 

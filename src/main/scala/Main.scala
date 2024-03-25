@@ -1,6 +1,5 @@
 
 import module1.implicits.{implicit_conversions, implicit_scopes}
-import module1.{executor, future, hof, lazyOps, list, threads, try_, type_system}
 
 import java.util.concurrent.Executor
 import scala.concurrent.Future
