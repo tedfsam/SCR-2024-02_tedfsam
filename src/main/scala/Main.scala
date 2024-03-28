@@ -1,6 +1,7 @@
 
 import module1.implicits.{implicit_conversions, implicit_scopes}
 import module1.{executor, future, hof, lazyOps, list, threads, try_, type_system}
+import module2.functional_effects.functionalProgram.{declarativeEncoding, executableEncoding}
 
 import java.util.concurrent.Executor
 import scala.concurrent.Future
@@ -63,7 +64,9 @@ object Main {
 //
 //     future.printRunningTime(ratesF)
 
-    implicit_scopes.result
+  //  implicit_scopes.result
+
+    declarativeEncoding.interpret(declarativeEncoding.greet2)
 
   }
 }
