@@ -1,5 +1,6 @@
 
 import scala.util.Random
+
 /*
 class Urn {
   val balls = List(1, 1, 1, 0, 0, 0) // 1 - белый шар, 0 - черный шар
@@ -23,9 +24,9 @@ object Main {
 }
 
  */
-val numbers = List(1, 2, 3, 4, 5)
 
-val result1 = numbers.filter(_ % 2 == 0).map(_ * 2).reverse
-val result1 = numbers.filter(_ % 2 == 0).map(_ * 2).sum
+var oneToTen = (3 to 9).toList
 
-val result2 = numbers.distinct.drop(2).take(2).map(_ * 10)
+oneToTen.head
+oneToTen.headOption
+oneToTen.tail
