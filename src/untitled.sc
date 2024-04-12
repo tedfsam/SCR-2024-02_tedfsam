@@ -1,6 +1,4 @@
 
-import scala.util.Random
-
 /*
 class Urn {
   val balls = List(1, 1, 1, 0, 0, 0) // 1 - белый шар, 0 - черный шар
@@ -25,8 +23,3 @@ object Main {
 
  */
 
-var oneToTen = (3 to 9).toList
-
-oneToTen.head
-oneToTen.headOption
-oneToTen.tail
