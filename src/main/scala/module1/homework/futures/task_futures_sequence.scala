@@ -16,10 +16,22 @@ object task_futures_sequence {
    * в правово результаты неуспешных выполнений.
    * Не допускается использование методов объекта Await и мутабельных переменных var
    */
+
   /**
    * @param futures список асинхронных задач
    * @return асинхронную задачу с кортежом из двух списков
    */
   def fullSequence[A](futures: List[Future[A]])
-                     (implicit ex: ExecutionContext): Future[(List[A], List[Throwable])] = ???
+                     (implicit ex: ExecutionContext): Future[(List[A], List[Throwable])] = {
+
+    val allFutures: Future[List[Either[A, Throwable]]] = Future.sequence(futures.map { future =>
+      future.map(Left(_)).recover { case e => Right(e) }
+    })
+
+    allFutures.map { results =>
+      val successfulResults = results.collect { case Left(value) => value }
+      val failedResults = results.collect { case Right(error) => error }
+      (successfulResults, failedResults)
+    }
+  }
 }
